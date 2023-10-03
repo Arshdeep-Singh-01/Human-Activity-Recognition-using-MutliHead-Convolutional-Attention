@@ -10,7 +10,6 @@
 - [Quantization](#quantization)
 - [Results](#results)
 - [References](#references)
-- [License](#license)
 
 ## Introduction
 
@@ -76,8 +75,4 @@ The trained model was then Quantized using Post Training Dynamic Quantization
 1. [Attention Is All You Need](https://arxiv.org/abs/1706.03762)
 2. [A Novel IoT-Perceptive Human Activity Recognition (HAR) Approach Using Multihead Convolutional Attention](https://ieeexplore.ieee.org/document/8883222)
 3. [Post Training Dynamic Quantization](https://pytorch.org/docs/stable/quantization.html#:~:text=Quantization%20is%20primarily%20a%20technique,model%20is%20converted%20to%20INT8.)
-   
-## License
 
-State the license under which the code is distributed. This could be an open-source license like MIT, GPL, or any other license that fits your project.
-```
