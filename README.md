@@ -7,6 +7,7 @@
 - [Dataset](#dataset)
 - [Model Architecture](#model-architecture)
 - [Training](#training)
+- [Quantization](#quantization)
 - [Results](#results)
 - [References](#references)
 - [License](#license)
@@ -55,23 +56,27 @@ The model was trained over 200 epochs (20+ hours of computation)
 - Optimizer: SGD(lr = 0.001)
 - Loss: Cross Entropy Loss
 
-# Results:
-Overall Accuracy: 98.33%
+## Quantization
+The trained model was then Quantized using Post Training Dynamic Quantization
 
-* Accuracy of Walking: 98.06%
-* Accuracy of Jogging: 99.82%
-* Accuracy of Upstairs: 92.87%
-* Accuracy of Downstairs: 98.5%
-* Accuracy of Sitting: 95.05%
-* Accuracy of Standing: 99.65%
+# Results:
+| Activity         | Accuracy (Original Model) | Accuracy (Quantized Model) |
+|-------------------|------------------|---------------------------|
+| Walking           | 98.06%           | 97.86%                    |
+| Jogging           | 99.82%           | 98.96%                    |
+| Upstairs          | 92.87%           | 92.57%                    |
+| Downstairs        | 98.5%            | 98.11%                    |
+| Sitting           | 95.05%           | 93.85%                    |
+| Standing          | 99.65%           | 98.97%                    |
+| **Overall**       | **97.33%**       | **96.72%**                |
+
 
 ## References
 
 1. [Attention Is All You Need](https://arxiv.org/abs/1706.03762)
 2. [A Novel IoT-Perceptive Human Activity Recognition (HAR) Approach Using Multihead Convolutional Attention](https://ieeexplore.ieee.org/document/8883222)
-3. [ImageNet Classification with Deep Convolutional
-Neural Networks](https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf)
-
+3. [Post Training Dynamic Quantization](https://pytorch.org/docs/stable/quantization.html#:~:text=Quantization%20is%20primarily%20a%20technique,model%20is%20converted%20to%20INT8.)
+   
 ## License
 
 State the license under which the code is distributed. This could be an open-source license like MIT, GPL, or any other license that fits your project.
