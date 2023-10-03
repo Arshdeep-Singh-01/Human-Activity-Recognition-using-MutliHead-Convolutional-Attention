@@ -1,4 +1,4 @@
-# Human-Activity-Recogonition-using-MutliHead-Convolutional-Attention
+# Human-Activity-Recognition-using-MutliHead-Convolutional-Attention
 
 ## Table of Contents
 
