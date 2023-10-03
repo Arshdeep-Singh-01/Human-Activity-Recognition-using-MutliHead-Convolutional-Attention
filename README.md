@@ -6,7 +6,9 @@
   - [Installation](#installation)
 - [Dataset](#dataset)
 - [Model Architecture](#model-architecture)
-- [Further Reading](#contributing)
+- [Training](#training)
+- [Results](#results)
+- [References](#references)
 - [License](#license)
 
 ## Introduction
@@ -37,6 +39,8 @@ This repository implements a multi-head convolutional attention-based model for 
 
 This task use the WISDM dataset which contains the acceleration values (x,y,z) and the corresponding activity, along with the temporal components
 Dataset is freely avaliable at [WISDM](https://www.cis.fordham.edu/wisdm/dataset.php)
+Train Data: 80%
+Test Data: 20%
 
 ## Model Architecture
 
@@ -46,7 +50,20 @@ The overview of the model architecture is as follows:
 - 30-Head Convolutional Attention
 - Fully connected dense layers
 
-For the purpose of the training, SGD as the optimizer and Cross Entropy Loss as the loss is used
+## Training
+The model was trained over 200 epochs (20+ hours of computation)
+- Optimizer: SGD(lr = 0.001)
+- Loss: Cross Entropy Loss
+
+# Results:
+Overall Accuracy: 98.33%
+
+* Accuracy of Walking: 98.06%
+* Accuracy of Jogging: 99.82%
+* Accuracy of Upstairs: 92.87%
+* Accuracy of Downstairs: 98.5%
+* Accuracy of Sitting: 95.05%
+* Accuracy of Standing: 99.65%
 
 ## References
 
