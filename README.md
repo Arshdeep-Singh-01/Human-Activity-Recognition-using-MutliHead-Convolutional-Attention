@@ -57,6 +57,10 @@ The model was trained over 200 epochs (20+ hours of computation)
 
 ## Quantization
 The trained model was then Quantized using Post Training Dynamic Quantization
+| Model | Size (MB)|
+|-------|-----------|
+| Original Model | 373.094 | 
+| Quantized Model | 0.009 |
 
 # Results:
 | Activity         | Accuracy (Original Model) | Accuracy (Quantized Model) |
