@@ -37,7 +37,6 @@ This repository implements a multi-head convolutional attention-based model for 
 
 This task use the WISDM dataset which contains the acceleration values (x,y,z) and the corresponding activity, along with the temporal components
 Dataset is freely avaliable at [WISDM](https://www.cis.fordham.edu/wisdm/dataset.php)
-![Dataset Classification](https://drive.google.com/file/d/1f0pWCgmu1rLYDQxZvPhBINjPmjKq8mY4/view?usp=sharing)
 
 ## Model Architecture
 
