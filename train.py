@@ -74,7 +74,23 @@ if __name__ == "__main__":
 
     # saving model
     state_dict = model.state_dict()
-    torch.save(state_dict, 'C:/Users/Admin/Desktop/CNN_HAR/Code/utils/SavedModels/' + 'mainmodel.tar')
+    dir = 'C:/Users/Admin/Desktop/CNN_HAR/Code/utils/SavedModels/'
+    torch.save(state_dict, dir + 'mainmodel.tar')
+
+    # reloading model
+    new_model_state = torch.load(dir + 'mainmodel.tar', map_location=torch.device('cpu'))
+    new_model = MultiheadAttention(3000)
+    new_model.load_state_dict(new_model_state)
+
+    # model Quantization
+    quantized_model = torch.ao.quantization.quantize_dynamic(
+                      new_model,  # the original model
+                      {torch.nn.Linear},  # a set of layers to dynamically quantize
+                      dtype=torch.qint8)
+    
+    # saving Quantized model
+    q_state_dict = quantized_model.state_dict()
+    torch.save(q_state_dict, dir + 'q_model.tar')
 
 
 

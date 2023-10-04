@@ -57,12 +57,24 @@ def evalModel(model, data_loader):
         else:
           print(f'Accuracy of {classes[i]}: {0} %')
 
+def getModelSize(model):
+  param_size = 0
+  for param in model.parameters():
+      param_size += param.nelement() * param.element_size()
+  buffer_size = 0
+  for buffer in model.buffers():
+      buffer_size += buffer.nelement() * buffer.element_size()
+
+  size_all_mb = (param_size + buffer_size) / 1024**2
+  print('model size: {:.3f}MB'.format(size_all_mb))
+
 if __name__ == '__main__':
    # getting dataloaders
     train_data_loader, test_data_loader = getData()
    
    # load the saved model
-    state_dict = torch.load("our_model.tar")
+    dir = 'C:/Users/Admin/Desktop/CNN_HAR/Code/utils/SavedModels/'
+    state_dict = torch.load(dir + 'mainmodel.tar')
 
     # Create a new model and load the state
     model = MultiheadAttention(3000)
@@ -70,3 +82,17 @@ if __name__ == '__main__':
 
     # testing model
     evalModel(model, test_data_loader)
+
+    # testing Quantized Model
+    q_state_dict = torch.load(dir + 'q_model.tar')
+    q_model = MultiheadAttention(3000)
+    model.load_state_dict(q_state_dict)
+
+    # tesing Quantized Model
+    evalModel(q_model, test_data_loader)
+
+    # comparing amount of Quantization
+    q_modelSize = getModelSize(q_model)
+    main_modelSize = getModelSize(model)
+
+    print(q_modelSize, main_modelSize)
