@@ -13,9 +13,7 @@
 
 ## Introduction
 
-This repository implements a multi-head convolutional attention-based model for human activity recognition. The model employs attention mechanisms to improve recognition accuracy by focusing on informative regions in the input data.
-
-
+This repository implements a multi-head convolutional attention-based model for human activity recognition. The model employs attention mechanisms to improve recognition accuracy by focusing on informative regions in the input data. Further, the obtained model is Quantized for supporting IoT-based devices.
 
 ### Installation
 
@@ -49,6 +47,8 @@ The overview of the model architecture is as follows:
 - Concatination followed by Maxpooling
 - 30-Head Convolutional Attention
 - Fully connected dense layers
+
+![Model Architecture](https://github.com/Arshdeep-Singh-01/Human-Activity-Recognition-using-MutliHead-Convolutional-Attention/blob/main/img/Architecture.png)
 
 ## Training
 The model was trained over 200 epochs (20+ hours of computation)
